@@ -1,0 +1,7 @@
+transformers
+torch
+huggingface-hub
+safetensors
+requests
+pandas
+scikit-learn
