@@ -9,58 +9,78 @@
 
 ---
 
-## 📖 Overview
+# 📖 Overview
 
 Guardian AI is an AI-powered safety system designed to detect potential **online grooming behaviours** before they escalate into exploitation.
 
-The system uses **Natural Language Processing (NLP), behavioural analysis, and privacy-first AI architecture** to analyze conversations and identify manipulation patterns such as:
+The system combines **Natural Language Processing (NLP), behavioural analysis, and privacy-first AI architecture** to identify manipulation patterns and provide early risk assessment.
 
-- Trust building
-- Secrecy requests
-- Emotional manipulation
-- Image requests
-- Personal information requests
-- Physical meetup attempts
+Unlike traditional moderation systems that depend only on keyword detection, Guardian AI analyses **conversation context, intent, and behavioural patterns** to identify possible grooming attempts.
 
-Unlike traditional moderation systems that rely only on keyword detection, Guardian AI focuses on **conversation context, behavioural progression, and intent** to estimate grooming risk.
+The system detects patterns such as:
+
+- 💬 Trust building
+- 🔐 Secrecy requests
+- ❤️ Emotional manipulation
+- 📷 Image requests
+- 📝 Personal information requests
+- 📍 Physical meetup attempts
 
 ---
 
 # 🎯 Problem Statement
 
-Online grooming is a gradual process where attackers build trust and manipulate victims over time. Harmful intent is often hidden behind normal-looking conversations, making traditional keyword-based detection ineffective.
+Online grooming is a gradual manipulation process where attackers build emotional connections with victims before exploitation.
 
-Existing systems face challenges such as:
+Traditional detection methods face challenges such as:
 
 - Lack of contextual understanding
+- Dependence on fixed keywords
 - High false-positive rates
-- Privacy concerns due to cloud-based message analysis
-- Difficulty detecting early-stage manipulation
+- Privacy concerns with cloud-based message analysis
+- Difficulty identifying early-stage grooming behaviour
 
-Guardian AI aims to provide an intelligent early-warning system while preserving user privacy.
+Guardian AI aims to provide an intelligent early-warning system while maintaining user privacy.
 
 ---
 
 # 💡 Solution
 
-Guardian AI introduces a hybrid AI approach combining:
+Guardian AI uses a hybrid AI approach consisting of:
 
 ## 🧠 Local Tripwire AI
 
-A lightweight AI layer that performs early analysis and detects suspicious patterns while minimizing exposure of sensitive conversations.
+A lightweight local analysis layer that detects suspicious behavioural signals before sending information externally.
+
+It performs:
+
+- NLP-based classification
+- Rule-based pattern detection
+- Risk scoring
+
+---
 
 ## 🤖 Sentinel AI Backend
 
-A deeper analysis layer that evaluates behavioural patterns, maintains risk history, and provides final risk assessment.
+A backend intelligence layer that performs deeper behavioural analysis and maintains risk history.
 
-## 🔒 Privacy-First Architecture
+It provides:
 
-The system improves privacy by:
+- Advanced conversation analysis
+- Risk evaluation
+- Behavioural summaries
+- Threat classification
 
-- Processing messages locally whenever possible
-- Sending only required analysis data
-- Avoiding storage of raw conversations
-- Using hashed identifiers for users
+---
+
+## 🔒 Privacy-First Design
+
+Guardian AI follows a privacy-preserving architecture by:
+
+- Minimizing raw message transmission
+- Processing sensitive information locally whenever possible
+- Using hashed identifiers
+- Sending only required analysis information
 
 ---
 
@@ -94,23 +114,27 @@ The system improves privacy by:
 
 # ⚙️ System Components
 
-| Component | Technology | Responsibility |
-|-----------|------------|----------------|
-| Android Application | Kotlin | Secure conversation extraction |
-| Local Tripwire AI | Python + Transformers | Early grooming detection |
-| NLP Model | HuggingFace Transformers | Behaviour classification |
-| Backend API | FastAPI | Advanced analysis and history |
+| Component | Technology | Purpose |
+|-----------|------------|---------|
+| Android Client | Kotlin | Secure conversation extraction |
+| Local Tripwire AI | Python + Transformers | Early risk detection |
+| NLP Engine | HuggingFace Transformers | Behaviour classification |
+| Backend API | FastAPI | Analysis and history management |
 | Dashboard | Streamlit | Risk visualization |
 
 ---
 
 # 🧠 AI & NLP Pipeline
 
-Guardian AI combines machine learning and rule-based intelligence.
+Guardian AI combines Transformer-based NLP with behavioural intelligence.
+
+---
 
 ## 1. Zero-Shot NLP Classification
 
-A Transformer-based model analyzes conversation patterns using categories such as:
+The system uses a Transformer-based zero-shot classification model to analyse conversation behaviour.
+
+Detected categories include:
 
 - Normal conversation
 - Trust building
@@ -122,13 +146,13 @@ A Transformer-based model analyzes conversation patterns using categories such a
 - Sexual request
 - Age discrepancy
 
-The model evaluates behavioural patterns without requiring a large manually labelled dataset.
+The model identifies behavioural patterns without requiring a large manually labelled dataset.
 
 ---
 
 ## 2. Behavioural Risk Scoring
 
-The final risk score is calculated using:
+The final risk score combines multiple signals:
 
 ```
 Final Risk Score =
@@ -139,7 +163,7 @@ Rule-Based Behaviour Score
 Conversation Context Analysis
 ```
 
-The system considers:
+The system evaluates:
 
 - Excessive trust building
 - Isolation attempts
@@ -151,10 +175,10 @@ The system considers:
 
 ## 3. Noise Detection
 
-Guardian AI reduces false positives using:
+To reduce false positives, Guardian AI applies noise filtering techniques:
 
 - Character entropy analysis
-- Text uniqueness ratio
+- Text uniqueness analysis
 - Vowel distribution checks
 - Gibberish detection
 
@@ -162,8 +186,8 @@ Guardian AI reduces false positives using:
 
 # 🚨 Risk Classification
 
-| Level | Description |
-|------|-------------|
+| Risk Level | Description |
+|------------|-------------|
 | 🟢 LOW RISK | Normal conversation behaviour |
 | 🟡 SUSPICIOUS | Potential manipulation patterns detected |
 | 🔴 HIGH RISK | Strong grooming indicators detected |
@@ -172,38 +196,62 @@ Guardian AI reduces false positives using:
 
 # 📊 Dashboard
 
-The Streamlit dashboard displays:
+Guardian AI provides a Streamlit dashboard for visualizing AI-generated risk assessments.
 
-- Risk score
-- Tripwire score
-- Threat categories
-- Behaviour summary
-- Confidence score
-- Conversation history
+The dashboard displays:
+
+- Risk Score
+- Tripwire Score
+- Threat Level
+- Grooming Stage
+- Confidence Score
+- Behavioural Indicators
+- Relationship Context
+- Risk Analysis History
+
+---
+
+## Dashboard Overview
+
+![Guardian AI Dashboard Overview](images/dashboard_overview.png)
+
+---
+
+## Behavioural Analysis
+
+The behavioural analysis module highlights detected manipulation patterns and provides additional context about the conversation.
+
+![Guardian AI Behavioural Analysis](images/behavioural_analysis.png)
 
 ---
 
 # 🛠️ Tech Stack
 
-## Languages
+## Programming Languages
+
 - Python
 - Kotlin
 
-## AI / ML
+## Artificial Intelligence
+
 - HuggingFace Transformers
 - Zero-Shot Classification
-- NLP Behaviour Analysis
+- Natural Language Processing
+- Behavioural Risk Analysis
 
 ## Backend
+
 - FastAPI
 - REST APIs
 - JSON Communication
 
 ## Frontend
+
 - Streamlit Dashboard
 - Android Application
 
-## Tools
+## Development Tools
+
 - Git
 - GitHub
 - Uvicorn
@@ -216,21 +264,25 @@ The Streamlit dashboard displays:
 Guardian-AI/
 
 │
-├── android/
+├── android-client/
 │   └── Android Accessibility Service
 │
-├── local_ai/
+├── local-ai/
 │   ├── conversation_analyzer.py
 │   ├── risk_engine.py
 │   └── adapter.py
 │
-├── backend/
+├── backend-api/
 │   ├── FastAPI Server
 │   ├── API Routes
 │   └── Database Layer
 │
 ├── dashboard/
 │   └── Streamlit Dashboard
+│
+├── images/
+│   ├── dashboard_overview.png
+│   └── behavioural_analysis.png
 │
 ├── requirements.txt
 └── README.md
@@ -260,7 +312,7 @@ pip install -r requirements.txt
 
 ---
 
-## Start Backend
+## Start Backend Server
 
 ```bash
 uvicorn main:app --reload
@@ -276,29 +328,39 @@ streamlit run dashboard.py
 
 ---
 
+# 🎥 Demo
+
+A demonstration video showcasing the Guardian AI dashboard workflow, risk assessment, and behavioural analysis.
+
+(Add your demo video link here)
+
+---
+
 # 🔮 Future Enhancements
+
+Future improvements include:
 
 - Real-time Android integration
 - Multilingual grooming detection
-- Explainable AI reasoning
+- Explainable AI risk reasoning
 - Parent/guardian alert system
 - Behaviour timeline analysis
-- Continuous model improvement using privacy-preserving learning
+- Privacy-preserving continuous learning
 
 ---
 
 # 🌍 Impact
 
-Guardian AI aims to provide an intelligent digital safety layer that identifies harmful online interactions at an early stage.
+Guardian AI aims to create a proactive digital safety layer that identifies harmful online interactions at an early stage.
 
-By combining **AI-based behavioural understanding** with a **privacy-first architecture**, Guardian AI moves beyond traditional moderation systems toward proactive online protection.
+By combining **AI-based behavioural understanding** with a **privacy-first architecture**, Guardian AI moves beyond traditional moderation systems toward intelligent online protection.
 
 ---
 
 # 👥 Team Guardian AI
 
-Built as part of an AI and cybersecurity innovation initiative focused on creating safer online environments.
+Built as part of an AI and cybersecurity innovation initiative focused on creating safer online environments through responsible artificial intelligence.
 
 ---
 
-⭐ If you find this project useful, consider starring the repository!
+⭐ If you find this project interesting, consider starring the repository!
